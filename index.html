@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div id = "game">
+        <p>Guess what letter I'm thinking of</p>
+        <p>wins: 0</p>
+        <p>losses: 0</p>
+        <p>guessesLeft: 0</p>
+        <p>guessedLetters: 0</p>
+
+        </div>
+
+        <script type ="text/javascript">
+// layout of variable for the game
+
+        // src="game.js" async defer>
+// create array for players to choose from
+        var options = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q"
+    ,"r","s","t","u","v","w","x","y","z"];
+
+// tracking losses, wins, guesses left, guessed letters
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        // var computerGuess = [];
+        var guessedLetters = [];
+        
+
+// create computer guess
+        var computerguess = options[Math.floor(Math.random()*options.length)];
+        console.log(computerguess); 
+
+
+// create user guess
+        document.onkeyup = function() {
+            var userguess = String.fromCharCode(event.keyCode).
+                toLowerCase();
+
+            console.log(userguess);
+
+// comparing user guess and computer guess
+
+                    if ((userguess === computerguess)) {
+                        wins++
+                        guessesLeft-=
+                        guessedLetters = [];
+                        // alert("wins: " + wins);
+                        console.log("you won!") }
+
+                    else {
+                        losses++
+                        guessesLeft-=
+                        guessedLetters = [];
+                        // alert("losses: " + losses);
+                        console.log("you lost!"); }
+        
+             
+        var html = "<p>Guess what letter I'm thinking of</p>" +
+        "<p> wins: " + wins + "</p>" +
+        "<p> losses: " + losses + "</p>" +
+        "<p> guessesLetters: " + userguess + "</p>" +
+        "<p> guessesLeft: " + "</p>";
+
+            document.querySelector('#game').innerHTML = html;
+            }
+
+            </script>
+
+</body>
+</html>
