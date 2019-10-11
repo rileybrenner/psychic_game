@@ -23,11 +23,15 @@ window.onload = function() {
 }
 // if the player chooses the same letter as computer, you win!
 
-if ((userGuess === computerGuess[0]) && (remainingGuesses > 0)) {
-	wins++;
+gameReset = function() {
 	remainingGuesses = 9;
 	lettersGuessed.length = 0;
-	computerGuess.length = 0;
+	computerGuess.length = 0;	
+}
+
+if ((userGuess === computerGuess[0]) && (remainingGuesses > 0)) {
+	wins++;
+	gameReset();
 	var compGuess = options[Math.floor(Math.random() * options.length)];
 	computerGuess.push(compGuess);
 	console.log(computerGuess[0]);
@@ -42,9 +46,7 @@ else if ((userGuess !== computerGuess[0]) && (remainingGuesses > 0)) {
 
 else {
 	losses++;
-	remainingGuesses = 9;
-	lettersGuessed.length = 0;
-	computerGuess.length = 0;
+	gameReset();
 	var compGuess = options[Math.floor(Math.random() * options.length)];
 	computerGuess.push(compGuess);
 	console.log(computerGuess[0]);
@@ -59,5 +61,8 @@ var html = "<p>Guess what letter I'm thinking of!</p>" +
           "<p>Your guesses so far: " + lettersGuessed + "</p>";
  
 document.querySelector("#game").innerHTML = html;
+
+// document.querySelector("#wins").innerHTML = wins;
+// document.getElementById("game").innerHTML = wins;
 
 }
