@@ -59,8 +59,10 @@ var html = "<p>Guess what letter I'm thinking of!</p>" +
           "<p>Losses: " + losses + "</p>" +
           "<p>Guesses left: " + remainingGuesses + "</p>" +
           "<p>Your guesses so far: " + lettersGuessed + "</p>";
- 
-document.querySelector("#game").innerHTML = html;
+	document.getElementById("game").innerHTML = html;
+
+// document.querySelector("#game").innerHTML = html;
+
 
 // document.querySelector("#wins").innerHTML = wins;
 // document.getElementById("game").innerHTML = wins;
